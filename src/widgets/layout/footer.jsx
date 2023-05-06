@@ -5,11 +5,11 @@ const year = new Date().getFullYear();
 
 export function Footer({ title, description, socials, menus, copyright }) {
   return (
-    <footer className="relative px-4 pt-8 pb-6">
+    <footer className="relative bg-[#0b1b29] text-white px-4 pt-8 pb-6">
       <div className="container mx-auto">
         <div className="flex flex-wrap pt-6 text-center lg:text-left">
           <div className="w-full px-4 lg:w-6/12">
-            <Typography variant="h4" className="mb-4" color="blue-gray">
+            <Typography variant="h4" className="mb-4" color="white">
               {title}
             </Typography>
             <Typography className="font-normal text-blue-gray-500">
@@ -51,7 +51,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
                         target="_blank"
                         rel="noreferrer"
                         variant="small"
-                        className="mb-2 block font-normal text-blue-gray-500 hover:text-blue-gray-700"
+                        className="mb-2 block font-normal text-white hover:text-blue-gray-700"
                       >
                         {item.name}
                       </Typography>
@@ -67,7 +67,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
           <div className="mx-auto w-full px-4 text-center">
             <Typography
               variant="small"
-              className="font-normal text-blue-gray-500"
+              className="font-normal text-white"
             >
               {copyright}
             </Typography>
@@ -84,7 +84,7 @@ Footer.defaultProps = {
     "We care all the time.",
   socials: [
     {
-      color: "blue",
+      color: "white",
       name: "facebook",
       path: "/home",
     },

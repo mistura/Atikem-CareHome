@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Logo from '../../../public/img/logo1-resized.png'
 import { Link } from "react-router-dom";
+import Socials from "@/data/socials";
 import {
   Navbar as MTNavbar,
   MobileNav,
@@ -22,12 +23,12 @@ export function Navbar({ brandName, routes, action }) {
   }, []);
 
   const navList = (
-    <ul className="mb-4 mt-2 flex flex-col gap-2 text-inherit lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+    <ul className="mb-4 mt-2 flex flex-col gap-2 text-inherit hover:text-[#2d6a81] lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       {routes.map(({ name, path, icon, href, target }) => (
         <Typography
           key={name}
           as="li"
-          variant="small"
+          variant="medium"
           color="inherit"
           className="capitalize"
         >
@@ -62,8 +63,8 @@ export function Navbar({ brandName, routes, action }) {
   );
 
   return (
-    <MTNavbar color="transparent" className="p-3">
-      <div className="container mx-auto flex items-center justify-between text-white">
+    // <MTNavbar className="w-full">
+      <div className=" mx-auto flex items-center justify-between text-blue border rounded-white">
         <Link to="/">
           <Typography className="mr-4 ml-2 cursor-pointer py-1.5 font-bold">
             <img src={Logo} />
@@ -74,12 +75,24 @@ export function Navbar({ brandName, routes, action }) {
           <a
             href="https://www.material-tailwind.com/blocks?ref=mtkr"
             target="_blank"
+            className="bg-[#31b4aa]"
           >
           </a>
           {React.cloneElement(action, {
             className: "hidden lg:inline-block",
           })}
         </div>
+       
+          <div className="flex items-center gap-2">
+             {Socials.map(({ color, name }) => (
+                <IconButton key={name} color={color} variant="gradient">
+                  <i className={`fa-brands text-lg fa-${name}`} />
+                </IconButton>
+              ))} 
+          
+         </div>
+        
+        
         <IconButton
           variant="text"
           size="sm"
@@ -94,7 +107,7 @@ export function Navbar({ brandName, routes, action }) {
           )}
         </IconButton>
       </div>
-    </MTNavbar>
+    // </MTNavbar>
   );
 }
 

@@ -9,51 +9,146 @@ import {
   Input,
   Textarea,
 } from "@material-tailwind/react";
-import { UsersIcon } from "@heroicons/react/24/solid";
+import { UsersIcon, MapIcon } from "@heroicons/react/24/solid";
 import { PageTitle, Footer } from "@/widgets/layout";
 import { FeatureCard, TeamCard } from "@/widgets/cards";
 import { featuresData, teamData, contactData } from "@/data";
-
+import Detials from "@/data/details";
+import WhyChoose from "@/data/whyChoose";
 export function Home() {
+
+  const ColoredLine = ({ color }) => (
+    <hr
+    style={{
+    color: color,
+    backgroundColor: color,
+    height: 3,
+    borderRadius: 2,
+    width:250
+    }}
+    />
+    );
   return (
     <>
-      <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
-        <div className="absolute top-0 h-full w-full bg-[url('/public/img/bg6.jpg')] bg-cover bg-center" />
-        <div className="absolute top-0 h-full w-full bg-black/75 bg-cover bg-center" />
-        <div className="max-w-8xl container relative mx-auto">
+    {/* Hero start */}
+      <div className="relative flex h-screen  justify-center pt-16 pb-32">
+        <div className="absolute top-0 h-full w-full bg-[url('/public/img/img16.jpg')] bg-cover bg-center" />
+        <div className="absolute top-0 h-full w-full bg-black/40 bg-cover bg-center" />
+        <div className="w-1/2 items-start py-[2%]  absolute left-8 top-[25%] ">
           <div className="flex flex-wrap items-center">
-            <div className="ml-auto mr-auto w-full px-4 text-center lg:w-8/12">
+            <div className="ml-auto mr-auto min-w-full px-4  lg:w-8/12">
+            <Typography
+                variant="h6"
+                color="white"
+                className=" font-[#2d6a81] "
+              >
+              Atikem Care Home
+              </Typography>
               <Typography
                 variant="h1"
                 color="white"
-                className="mb-6 font-black"
+                className="mb-6 font-black "
               >
-                Atikem Care Home
+              You can't always be there but we can
               </Typography>
-              <Typography
-                variant="p"
-                color="white"
-                className="mb-6 font-black text-lg"
-              >
-               We care all the time
-              </Typography>
+              <div className="flex w-[75%] justify-between">
+              <button size="lg" className="min-w-max px-12 hover:shadow-xl  py-2 text-white rounded-lg bg-[#3174b4] mt-8">
+              Make Enquiry
+            </button>  
+            <button  size="lg" className="px-6 py-4 mt-8 border text-white border-white hover:bg-[#3174b4] hover:shadow-xl hover:border-[#3174b4] rounded-lg">
+              Request an Appointment
+            </button>
+
+              </div>
+              
+
              
             </div>
           </div>
         </div>
       </div>
-      {/* <section className="-mt-32 bg-gray-50 px-4 pb-20 pt-4">
+
+    {/* Hero end */}
+
+{/* find care office start */}
+      <section>
+        <div className="w-full text-center bg-[#3174b4] h-20 py-4 hover:bg-[#1B3F4D] cursor-pointer " >
+        <Typography
+                variant="h6"
+                color="white"
+                className="mt-2 font-black "
+                icon= {MapIcon}
+              >
+              Find your nearest Atikem Office
+              </Typography>
+        </div>
+      </section>
+
+{/* find care office end */}
+
+<section>
+  <div className="py-20  h-auto px-8">
+    <p className="font-[#2d6a81] text-3xl">
+    Would you rather stay at home than go into a health care facility <br/> or nursing home?
+    <div className="block md:flex justify-between my-8">
+      <ColoredLine color="#3174b4"/>
+      <div className="w-1/2">
+        <p className="text-lg">Atikem Care Home, LLC will provide the following home health care programs at flexible schedules and cost-friendly service rates.</p>
+      </div>
+      
+      <Button className="text-lg text-black hover:text-white bg-[#3174b4]">View Care Facilities</Button>
+    </div>
+      <div className=" rounded-md grid grid-cols-3 gap-8 mt-12">
+      {Detials.map(({img, text, narrative})=>(
+        // <FeatureCard img={img} key={text} description={narrative}/>
+          <div className="text-center">
+            <img src={img} alt="" className="rounded-lg border h-2/3 w-[90%]"/>
+            <p className="text-lg pt-6">{text}</p>
+            <p className="text-slate-300 text-[15px] leading-normal px-8">{narrative}</p>
+
+          </div>
+
+       
+      ))}
+
+      </div>
+      
+   
+
+    </p>
+  </div>
+</section>
+
+
+{/* Knowledge Area start */}
+
+      <section >
+        <div className="h-[300px] relative w-full bg-[url('/public/img/img6.jpg')] bg-cover bg-center">
+          <div className="w-full h-full bg-black/60">
+          <Typography variant="h2" color="white" className="text-center py-[7%]">
+                Why Choose Us
+            </Typography>
+
+          </div>
+            
+        </div>
+
+      </section>
+
+{/* Knowledge Area end */}
+
+      <section className="-mt-32 bg-gray-50 px-4 pb-20 pt-4">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {featuresData.map(({ color, title, icon, description }) => (
+            {featuresData.map(({ text, narrative, color, title, icon, description }) => (
               <FeatureCard
                 key={title}
                 color={color}
-                title={title}
+                title={text}
                 icon={React.createElement(icon, {
                   className: "w-5 h-5 text-white",
                 })}
-                description={description}
+                description={narrative}
               />
             ))}
           </div>
@@ -67,26 +162,24 @@ export function Home() {
                 className="mb-3 font-bold"
                 color="blue-gray"
               >
-                Working with us is a pleasure
+                Having a hand to hold allows me to stay in my home
               </Typography>
               <Typography className="mb-8 font-normal text-blue-gray-500">
-                Don't let your uses guess by attaching tooltips and popoves to
-                any element. Just make sure you enable them first via
-                JavaScript.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam est molestias quisquam vitae ipsum repudiandae blanditiis modi, voluptate, odit saepe alias, possimus vero voluptas omnis fugiat consequatur sapiente aliquid. Esse.
                 <br />
                 <br />
-                The kit comes with three pre-built pages to help you get started
-                faster. You can change the text and images and you're good to
-                go. Just make sure you enable them first via JavaScript.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit illo distinctio voluptas voluptatum numquam facere delectus. Dolore, ex nesciunt. Ad est cumque iure vero nam officiis voluptatum, libero dolores ratione.
               </Typography>
-              <Button variant="outlined">read more</Button>
+              <button  size="lg" className="px-6 py-4 mt-8 border text-[#3174b4] border-[#3174b4] hover:border-[#214d78] hover:shadow-lg rounded-lg">
+              Learn more
+            </button>
             </div>
             <div className="mx-auto mt-24 flex w-full justify-center px-4 md:w-4/12 lg:mt-0">
               <Card className="shadow-lg shadow-gray-500/10">
                 <CardHeader className="relative h-56">
                   <img
                     alt="Card Image"
-                    src="/img/teamwork.jpeg"
+                    src="/img/img15.jpg"
                     className="h-full w-full"
                   />
                 </CardHeader>
@@ -99,9 +192,7 @@ export function Home() {
                     Top Notch Services
                   </Typography>
                   <Typography className="font-normal text-blue-gray-500">
-                    The Arctic Ocean freezes every winter and much of the
-                    sea-ice then thaws every summer, and that process will
-                    continue whatever happens.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde ea laborum odio, accusamus maiores expedita delectus facere eveniet cumque hic!
                   </Typography>
                 </CardBody>
               </Card>
@@ -109,9 +200,10 @@ export function Home() {
           </div>
         </div>
       </section>
-      <section className="px-4 pt-20 pb-48">
+
+      {/* <section className="px-4 pt-20 pb-48">
         <div className="container mx-auto">
-          <PageTitle heading="Here are our heroes">
+          <PageTitle heading="Why choose Us">
             According to the National Oceanic and Atmospheric Administration,
             Ted, Scambos, NSIDClead scentist, puts the potentially record
             maximum.
@@ -136,8 +228,9 @@ export function Home() {
             ))}
           </div>
         </div>
-      </section>
-      <section className="relative bg-blue-gray-50/50 py-24 px-4">
+      </section> */}
+
+      {/* <section className="relative bg-blue-gray-50/50 py-24 px-4">
         <div className="container mx-auto">
           <PageTitle heading="Build something">
             Put the potentially record low maximum sea ice extent tihs year down
@@ -166,7 +259,7 @@ export function Home() {
               </Card>
             ))}
           </div>
-          <PageTitle heading="Want to work with us?">
+          <PageTitle heading="Lets have a Chat!?">
             Complete this form and we will get back to you in 24 hours.
           </PageTitle>
           <form className="mx-auto mt-12 max-w-3xl text-center">
@@ -175,14 +268,15 @@ export function Home() {
               <Input variant="standard" size="lg" label="Email Address" />
             </div>
             <Textarea variant="standard" size="lg" label="Message" rows={8} />
-            <Button variant="gradient" size="lg" className="mt-8">
+            <Button  className="mt-8 bg-[#3174b4]">
               Send Message
             </Button>
           </form>
         </div>
       </section> */}
+
       <div className="bg-blue-gray-50/50">
-        <Footer />
+        <Footer className="text-white"/>
       </div>
     </>
   );
