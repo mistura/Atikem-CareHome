@@ -11,8 +11,8 @@ export const featuresData = [
     icon: StarIcon,
     description:
       "Divide details about your product or agency work into parts. A paragraph describing a feature will be enough.",
-      text: "Daily care experts",
-      narrative: "We specialize in around the clock care to help seniors live well at home."
+      text: "Pre-Assessment",
+      narrative: "We carry out a pre-assessment audit of the need analysis of our customers prior to recomending the best care plan."
   },
   {
     color: "red",
@@ -30,8 +30,9 @@ export const featuresData = [
     description:
       "Write a few lines about each one. A paragraph describing a feature will be enough. Keep you user engaged!",
       text: "A trusted partner",
-      narrative: "Atikem Care Home is the trusted referral choice for elder care professionals."
+      narrative: "Atikem Care Services is the trusted referral choice for care professionals."
   },
+  
 ];
 
 export default featuresData;

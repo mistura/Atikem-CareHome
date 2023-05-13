@@ -4,10 +4,11 @@ import routes from "@/routes";
 
 function App() {
   return (
-    <>
-      <div className="absolute w-full z-10 bg-white px-8">
+    <div className="scroll-smooth">
+      <div className=" w-full px-8">
         <Navbar routes={routes} />
       </div>
+      
       <Routes>
         {routes.map(
           ({ path, element }, key) =>
@@ -15,7 +16,7 @@ function App() {
         )}
         <Route path="*" element={<Navigate to="/home" replace />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

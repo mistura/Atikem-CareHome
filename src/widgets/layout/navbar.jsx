@@ -23,14 +23,14 @@ export function Navbar({ brandName, routes, action }) {
   }, []);
 
   const navList = (
-    <ul className="mb-4 mt-2 flex flex-col gap-2 text-inherit hover:text-[#2d6a81] lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+    <ul className="mb-4 mt-2 flex flex-col gap-1 text-inherit  lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       {routes.map(({ name, path, icon, href, target }) => (
         <Typography
           key={name}
           as="li"
           variant="medium"
           color="inherit"
-          className="capitalize"
+          className="capitalize hover:text-[#2d6a81]"
         >
           {href ? (
             <a
@@ -71,24 +71,18 @@ export function Navbar({ brandName, routes, action }) {
           </Typography>
         </Link>
         <div className="hidden lg:block">{navList}</div>
-        <div className="hidden gap-2 lg:flex">
-          <a
-            href="https://www.material-tailwind.com/blocks?ref=mtkr"
-            target="_blank"
-            className="bg-[#31b4aa]"
-          >
-          </a>
-          {React.cloneElement(action, {
-            className: "hidden lg:inline-block",
-          })}
-        </div>
+        
        
           <div className="flex items-center gap-2">
              {Socials.map(({ color, name }) => (
                 <IconButton key={name} color={color} variant="gradient">
-                  <i className={`fa-brands text-lg fa-${name}`} />
+                  <i className={`fa-brands md:text-lg text-xs fa-${name}`} />
                 </IconButton>
-              ))} 
+              ))}
+
+              {React.cloneElement(action, {
+            className: "hidden md:flex",
+          })} 
           
          </div>
         
@@ -110,17 +104,16 @@ export function Navbar({ brandName, routes, action }) {
     // </MTNavbar>
   );
 }
-
+;;
 Navbar.defaultProps = {
-  brandName: "Material Tailwind React",
+  brandName: "Atikem",
   action: (
     <a
       href="/home"
-      target="_blank"
     >
-      <Button variant="gradient" size="sm" fullWidth>
-        Book reservat
-      </Button>
+      <button  size="sm" className="bg-[#0db1d5] px-2 py-2 border text-white border-white hover:bg-[#3174b4] hover:shadow-xl hover:border-[#3174b4] rounded-lg">
+              Book Reservation
+            </button>
     </a>
   ),
 };
