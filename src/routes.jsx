@@ -11,27 +11,33 @@ import {
 export const routes = [
   {
     icon: HomeIcon,
-    name: "About Us",
+    name: "Home",
     path: "/home",
     element: <Home />,
   },
   {
+    icon: HomeIcon,
+    name: "About",
+    path: "/about",
+    element: <Profile />,
+  },
+  {
     icon: UserCircleIcon,
     name: "Contact",
-    path: "/home",
+    path: "/contact",
     element: <Profile />,
     
   },
   {
     icon: ArrowRightOnRectangleIcon,
     name: "Services",
-    path: "/home",
+    path: "/services",
     element: <SignIn />,
   },
   {
     icon: PhotoIcon,
     name: "Gallery",
-    path: "/home",
+    path: "/blog",
     element: <SignUp />,
   },
   {

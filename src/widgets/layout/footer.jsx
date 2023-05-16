@@ -5,18 +5,18 @@ const year = new Date().getFullYear();
 
 export function Footer({ title, description, socials, menus, copyright }) {
   return (
-    <footer className="relative bg-[#0b1b29] text-white px-4 pt-8 pb-6">
+    <footer className="relative bg-black text-white px-4 pt-8 pb-6">
       <div className="container mx-auto">
-        <div className="flex flex-wrap pt-6 text-center lg:text-left">
-          <div className="w-full px-4 lg:w-6/12">
+        <div className="grid grid-cols-4 pt-6 text-center lg:text-left">
+          <div className="w-full px-4 ">
             <Typography variant="h4" className="mb-4" color="white">
               {title}
             </Typography>
-            <Typography className="font-normal text-blue-gray-500">
+            <Typography className="font-normal text-[#808080]">
               {description}
             </Typography>
-            <div className="mx-auto mt-6 mb-8 flex justify-center gap-2 md:mb-0 lg:justify-start">
-              {socials.map(({ color, name, path }) => (
+            <div className="   flex   ">
+              {/* {socials.map(({ color, name, path }) => (
                 <a
                   key={name}
                   href={path}
@@ -29,29 +29,30 @@ export function Footer({ title, description, socials, menus, copyright }) {
                     </Typography>
                   </IconButton>
                 </a>
-              ))}
+              ))} */}
+              <img src="/public/img/logo3.png" alt="" className="w-[60%]"/>
             </div>
           </div>
-          <div className="mx-auto mt-12 grid w-max grid-cols-2 gap-24 lg:mt-0">
+          <div className="mx-auto mt-12 grid w-max grid-cols-3 gap-24 lg:mt-0">
             {menus.map(({ name, items }) => (
               <div key={name}>
                 <Typography
                   variant="small"
-                  color="blue-gray"
+                  color="#f4f0ec"
                   className="mb-2 block font-medium uppercase"
                 >
                   {name}
                 </Typography>
-                <ul className="mt-3">
+                <ul className="mt-3 list-[circle] list-blue text-xl" style={{color:"#0db1d5", fontWeight:"bolder"}}>
                   {items.map((item) => (
-                    <li key={item.name}>
+                    <li key={item.name} className="">
                       <Typography
                         as="a"
                         href={item.path}
                         target="_blank"
                         rel="noreferrer"
                         variant="small"
-                        className="mb-2 block font-normal text-white hover:text-blue-gray-700"
+                        className="mb-2 block font-normal text-[#808080] hover:text-blue-gray-700"
                       >
                         {item.name}
                       </Typography>
@@ -79,33 +80,9 @@ export function Footer({ title, description, socials, menus, copyright }) {
 }
 
 Footer.defaultProps = {
-  title: "Atikem Care",
-  description:
-    "We care all the time.",
-  socials: [
-    {
-      color: "white",
-      name: "facebook",
-      path: "/home",
-    },
-    {
-      color: "light-blue",
-      name: "twitter",
-      path: "/home",
-    },
-    {
-      color: "purple",
-      name: "instagram",
-      path: "/home",
-    },
-   
-    {
-      color: "red",
-      name: "youtube",
-      path: "/home",
-    },
-    
-  ],
+  title: "HeadQuarter",
+  description: "Office 10, Bromley Hall, Leaside Business Centre, 44-46 Gillender Street, London E14 6RN",
+  socials: "/public/img/logo1.png",
   menus: [
     {
       name: "useful links",
@@ -120,27 +97,51 @@ Footer.defaultProps = {
         { name: "Blog", path: "/home"},
       ],
     },
-    // {
-    //   name: "other resources",
-    //   items: [
-    //     {
-    //       name: "MIT License",
-    //       path: "https://github.com/creativetimofficial/material-tailwind/blob/main/LICENSE.md?ref=mtk",
-    //     },
-    //     {
-    //       name: "Contribute",
-    //       path: "https://github.com/creativetimofficial/material-tailwind/blob/main/CONTRIBUTING.md?ref=mtk",
-    //     },
-    //     {
-    //       name: "Change Log",
-    //       path: "https://github.com/creativetimofficial/material-tailwind/blob/main/CHANGELOG.md?ref=mtk",
-    //     },
-    //     {
-    //       name: "Contact Us",
-    //       path: "https://creative-tim.com/contact-us?ref=mtk",
-    //     },
-    //   ],
-    // },
+
+
+    {
+      name: "Quick Links",
+      items: [
+        {
+          name: "MIT License",
+          path: "https://github.com/creativetimofficial/material-tailwind/blob/main/LICENSE.md?ref=mtk",
+        },
+        {
+          name: "Contribute",
+          path: "https://github.com/creativetimofficial/material-tailwind/blob/main/CONTRIBUTING.md?ref=mtk",
+        },
+        {
+          name: "Change Log",
+          path: "https://github.com/creativetimofficial/material-tailwind/blob/main/CHANGELOG.md?ref=mtk",
+        },
+        {
+          name: "Contact Us",
+          path: "https://creative-tim.com/contact-us?ref=mtk",
+        },
+      ],
+    },
+
+    {
+      name: "Services",
+      items: [
+        {
+          name: "MIT License",
+          path: "https://github.com/creativetimofficial/material-tailwind/blob/main/LICENSE.md?ref=mtk",
+        },
+        {
+          name: "Contribute",
+          path: "https://github.com/creativetimofficial/material-tailwind/blob/main/CONTRIBUTING.md?ref=mtk",
+        },
+        {
+          name: "Change Log",
+          path: "https://github.com/creativetimofficial/material-tailwind/blob/main/CHANGELOG.md?ref=mtk",
+        },
+        {
+          name: "Contact Us",
+          path: "https://creative-tim.com/contact-us?ref=mtk",
+        },
+      ],
+    },
   ],
   copyright: (
     <>

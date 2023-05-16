@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Logo from '../../../public/img/logo1-resized.png'
+import Logo from '../../../public/img/logo2.png'
 import { Link } from "react-router-dom";
 import Socials from "@/data/socials";
 import {
@@ -65,7 +65,7 @@ export function Navbar({ brandName, routes, action }) {
   return (
     // <MTNavbar className="w-full">
       <div className=" mx-auto flex items-center justify-between text-blue border rounded-white">
-        <Link to="/">
+        <Link to="/home">
           <Typography className="mr-4 ml-2 cursor-pointer py-1.5 font-bold">
             <img src={Logo} />
           </Typography>

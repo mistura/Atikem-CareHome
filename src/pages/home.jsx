@@ -13,22 +13,12 @@ import { UsersIcon, MapIcon } from "@heroicons/react/24/solid";
 import { PageTitle, Footer } from "@/widgets/layout";
 import { FeatureCard, TeamCard } from "@/widgets/cards";
 import { featuresData, teamData, contactData } from "@/data";
+import {WhatsAppOutlined} from '@ant-design/icons';
 import Detials from "@/data/details";
 import WhyChoose from "@/data/whyChoose";
 export function Home() {
 
-  const slides =[
-    {
-      url: '/public/img/1mg4.jpg'
-    },
-    {
-      url: '/public/img/1mg5.jpg'
-    },
-    {
-      url: '/public/img/1mg6.jpg'
-    }
-  ]
-
+  
   const ColoredLine = ({ color }) => (
     <hr
     style={{
@@ -230,7 +220,7 @@ export function Home() {
         <div id="default-carousel" data-carousel="slide" className="grid grid-cols-1 md:grid-cols-2 mb-32">
           <div className="md:px-28 px-8 md:py-12 py-8 bg-[#0db1d5] text-white">
             <h1 className=" md:text-4xl text-xl font-bold py-1">Sharom</h1>
-            <p className="md:text-xl text-md font-normal py-1">Client</p>
+            <p className="md:text-xl text-md font-normal py-1">Happy Client</p>
             <p className="py-4 md:text-xl text-sm font-thin"><span className="text-6xl">"</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio reiciendis repellendus sed nam. Culpa sequi, reiciendis hic aspernatur deserunt mollitia, labore reprehenderit tempora laudantium esse rerum exercitationem eligendi doloribus qui?</p>
             
           </div>
@@ -239,11 +229,34 @@ export function Home() {
 
 
         </div>
+        
+        <div className="mx-auto  mb-32 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
+            {contactData.map(({ title, icon, description }) => (
+              <Card
+                key={title}
+                color="transparent"
+                shadow={false}
+                className="text-center text-blue-gray-900"
+              >
+                <div className="mx-auto mb-6 grid h-14 w-14 place-items-center rounded-full bg-white shadow-lg shadow-gray-500/20">
+                  {React.createElement(icon, {
+                    className: "w-5 h-5",
+                  })}
+                </div>
+                <Typography variant="h5" color="blue-gray" className="mb-2">
+                  {title}
+                </Typography>
+                <Typography className="font-normal text-blue-gray-500">
+                  {`" ` + description + `"`}
+                </Typography>
+              </Card>
+            ))}
+          </div>
 
 </section>
 {/* testimonial end */}
 
-      <section className="px-4 pt-20 pb-48">
+      {/* <section className="px-4 pt-20 pb-48">
         <div className="container mx-auto">
           <PageTitle heading="Why choose Us">
             According to the National Oceanic and Atmospheric Administration,
@@ -270,37 +283,31 @@ export function Home() {
             ))}
           </div>
         </div>
+      </section> */}
+
+      <section>
+        <div className="py-16  md:px-52 w-full h-[20%] bg-gradient-to-r from-[#0db1d5] to-[#076A7F]">
+          <h1 className="text-white text-3xl md:text-5xl text-center md:px-4 px-0">We do what ever it takes to bring<br/> you peace of mind</h1>
+          <div className="md:flex block justify-between  w-[65%] gap-8 mt-12 text-center m-auto">
+              <button  className="px-8 min-w-fit py-4  mt-4 border text-white border-white hover:border-[#214d78] hover:shadow-lg rounded-md">
+              Learn more
+            </button>
+            <div className="flex w-full md:w-[62%] justify-between cursor-pointer hover:shadow-lg px-2 hover:border hover:border-[#076A7F]">
+              
+            <WhatsAppOutlined  className="text-white  text-4xl mt-2 md:mt-4"/>
+              <div className="block justify-between ">
+              <p className="text-white text-lg font-mormal">24/7 service available</p>
+              <p className="text-white text-2xl md:text-4xl font-extrabold">01 800 688 8688</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </section>
 
-      <section className="relative bg-blue-gray-50/50 py-24 px-4">
+      <section className="relative bg-blue-gray-50/50 py-4 px-4">
         <div className="container mx-auto">
-          <PageTitle heading="Build something">
-            Put the potentially record low maximum sea ice extent tihs year down
-            to low ice. According to the National Oceanic and Atmospheric
-            Administration, Ted, Scambos.
-          </PageTitle>
-          <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
-            {contactData.map(({ title, icon, description }) => (
-              <Card
-                key={title}
-                color="transparent"
-                shadow={false}
-                className="text-center text-blue-gray-900"
-              >
-                <div className="mx-auto mb-6 grid h-14 w-14 place-items-center rounded-full bg-white shadow-lg shadow-gray-500/20">
-                  {React.createElement(icon, {
-                    className: "w-5 h-5",
-                  })}
-                </div>
-                <Typography variant="h5" color="blue-gray" className="mb-2">
-                  {title}
-                </Typography>
-                <Typography className="font-normal text-blue-gray-500">
-                  {description}
-                </Typography>
-              </Card>
-            ))}
-          </div>
+         
           <PageTitle heading="Lets have a Chat!?">
             Complete this form and we will get back to you in 24 hours.
           </PageTitle>
