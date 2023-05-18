@@ -363,7 +363,7 @@ h6,
 }
 
 .bg-testimonial {
-    background: url(../img/img/care4.webp) center center no-repeat;
+   background: linear-gradient(rgba(0, 0, 0, .70), rgba(0, 0, 0, .5)), url(../img/img/care4.webp) center center no-repeat;
     background-size: cover;
 }
 
