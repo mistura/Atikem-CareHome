@@ -8,7 +8,7 @@
     <meta content="Free HTML Templates" name="description" />
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon" />
+    <link href="img/img/logo3.png" rel="icon" />
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -100,7 +100,7 @@
       class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0"
     >
       <a href="index.html" class="p-0 border-0">
-        <img class="logo-new" src="img/img/new-logo.png" alt="logo" />
+        <img class="logo-new" src="img/img/new-round.png" alt="logo" />
       </a>
       <button
         class="navbar-toggler"
@@ -239,15 +239,16 @@
                   <span>020 88221 9754</span>
                 </div>
               </div>
-              <img class="logo-footer" src="img/img/new-logo.png" alt="" />
+              <img class="logo-footer" src="img/img/new-round.png" alt="" />
             </div>
           </div>
           <div class="col-xl-4 col-lg-6 wow slideInUp" data-wow-delay="0.3s">
-            <form>
+            <form onsubmit="sendEmail(); reset(); return false;">
               <div class="row g-3">
                 <div class="col-12">
                   <input
                     type="text"
+                    id="name"
                     class="form-control border-0 bg-light px-4"
                     placeholder="Your Name"
                     style="height: 55px"
@@ -256,8 +257,18 @@
                 <div class="col-12">
                   <input
                     type="email"
+                    id="email"
                     class="form-control border-0 bg-light px-4"
                     placeholder="Your Email"
+                    style="height: 55px"
+                  />
+                </div>
+                <div class="col-12">
+                  <input
+                    type="text"
+                    id="phone-no"
+                    class="form-control border-0 bg-light px-4"
+                    placeholder="Tel"
                     style="height: 55px"
                   />
                 </div>
@@ -273,6 +284,7 @@
                   <textarea
                     class="form-control border-0 bg-light px-4 py-3"
                     rows="5"
+                    id="body"
                     placeholder="Message"
                   ></textarea>
                 </div>
@@ -301,32 +313,11 @@
     </div>
     <!-- Contact End -->
 
-    <!-- Newsletter Start -->
-    <div
-      class="container-fluid position-relative pt-5 wow fadeInUp"
-      data-wow-delay="0.1s"
-      style="z-index: 1"
-    >
-      <div class="container">
-        <div class="bg-primary p-5">
-          <form class="mx-auto" style="max-width: 600px">
-            <div class="input-group" style="display: flex">
-              <h1>Speak to an agent today!</h1>
-              <a href="contact.html" class="btn btn-dark py-2 px-4 ms-3"
-                >Send a message</a
-              >
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <!-- Newsletter End -->
-
     <!-- Footer Start -->
     <div
       class="container-fluid bg-dark text-light py-5 wow fadeInUp"
       data-wow-delay="0.3s"
-      style="margin-top: -75px"
+      style="margin-top: 75px"
     >
       <div class="container pt-5">
         <div class="row g-5 pt-4">
@@ -437,5 +428,21 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      function sendEmail(){
+        Email.send({
+    Host : "smtp.gmail.com",
+    Username : "quadri.mistura@gmail.com",
+    Password : "quadri@14",
+    To : 'quadri.mistura@gmail.com',
+    From : document.getElementById("email").value,
+    Subject : "ATIKEM: Website Enquiry",
+    Body : "And this is the body"
+}).then(
+  message => alert(message)
+);
+      }
+    </script>
   </body>
 </html>

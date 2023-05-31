@@ -6,6 +6,23 @@
   --dark: #033187;
 }
 
+.round{
+  border-radius: 20px;
+}
+
+.value ul li::before{
+  content: "\2022";
+  color: var(--primary);
+  font-size: 23px;
+  display: inline-block; 
+  width: 1em;
+  margin-left: -1em;
+}
+
+.value ul{
+  list-style: none;
+}
+
 .pink {
   background-color: #cc2591;
 }
